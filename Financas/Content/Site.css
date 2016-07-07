@@ -14,14 +14,14 @@ select{
     padding: 0.5em;
 }
 
-.field-vallidation-error{
+.field-validation-error{
     padding:0.5em;
     width:100%;
     display:block;
     color:red;
 }
 
-.input-vallidation-error{
+.input-validation-error{
     background-color:#ffd6d6;
 }
 
