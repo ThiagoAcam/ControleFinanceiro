@@ -1,0 +1,29 @@
+﻿@model IList<Financas.Entidades.Movimentacao>
+
+@Html.ActionLink("Nova movimentação", "Form", "Movimentacao")
+
+<table class="table table-hover">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Valor</th>
+            <th>Tipo</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var item in @Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Usuario.Nome</td>
+                <td>@item.Valor</td>
+                <td>@item.Tipo</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+

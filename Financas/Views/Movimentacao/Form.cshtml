@@ -1,0 +1,25 @@
+﻿@model @Financas.Entidades.Movimentacao
+
+
+@using(@Html.BeginForm("Adiciona", "Movimentacao", FormMethod.Post))
+{
+    
+    @Html.LabelFor(x => x.Valor, "Valor:")
+    @Html.TextBoxFor(x => x.Valor, new { @class = "form-control"})
+    @Html.ValidationMessageFor(x => x.Valor)
+    
+    @Html.LabelFor(x => x.UsuarioId, "Usuario:")
+    @Html.DropDownListFor(x => x.UsuarioId, new SelectList(@ViewBag.Usuarios, "Id", "Nome"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.UsuarioId)
+
+    @Html.LabelFor(x => x.Tipo, "Tipo:")
+    @Html.EnumDropDownListFor(x => x.Tipo, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Tipo)
+
+    @Html.LabelFor(x => x.Data, "Data:")
+    @Html.TextBoxFor(x => x.Data, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Data)
+
+    <input type="submit" value="Enviar" />
+    
+}
