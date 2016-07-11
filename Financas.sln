@@ -17,6 +17,6 @@ Global
 		{32FADD53-2852-481F-893E-E2C05E2E392A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
+		HideSolutionNode  = FALSE
 	EndGlobalSection
 EndGlobal
