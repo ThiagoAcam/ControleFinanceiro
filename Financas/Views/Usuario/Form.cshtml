@@ -3,6 +3,7 @@
 
 @using(@Html.BeginForm("Adiciona", "Usuario", FormMethod.Post))
 {
+    @Html.ValidationMessage("usuario.Invalido")
     
     @Html.LabelFor(x => x.Nome, "Nome:")
     @Html.TextBoxFor(x => x.Nome, new { @class = "form-control"})

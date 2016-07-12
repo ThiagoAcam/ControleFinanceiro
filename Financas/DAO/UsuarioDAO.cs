@@ -28,7 +28,7 @@ namespace Financas.DAO
 
         public Usuario Busca(int id)
         {
-            return context.Usuarios.find(id);
+            return context.Usuarios.Find(id);
         }
     }
 }
