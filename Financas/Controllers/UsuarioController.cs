@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 using WebMatrix.WebData;
 
 namespace Financas.Controllers
@@ -32,14 +31,12 @@ namespace Financas.Controllers
             {
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.Nome, model.Senha, new { Email = model.Email});
-
+                    WebSecurity.CreateUserAndAccount(model.Nome, model.Senha, new { Email = model.Email });
                     return RedirectToAction("Index");
                 }
-                catch(MembershipCreateUserException ex)
+                catch
                 {
-                    ModelState.AddModelError("usuario.Invalido", ex.Message);
-                    return View("Form", model);
+                    return RedirectToAction("Form", model);
                 }
             }
             else
