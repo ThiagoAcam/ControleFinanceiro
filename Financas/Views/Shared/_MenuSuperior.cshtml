@@ -7,11 +7,11 @@
 
             @if (User.Identity.IsAuthenticated)
             {
-                <li>@Html.ActionLink("Deslogar", "LogOut", "Login")</li>
+                <li>@Html.ActionLink("Deslogar", "LogOut", "Login2")</li>
             }
             else
             {
-                <li>@Html.ActionLink("Autenticar", "Index", "Login")</li>
+                <li>@Html.ActionLink("Autenticar", "Index", "Login2")</li>
             }
         </ul>
     </div>
