@@ -26,5 +26,52 @@ namespace Financas.DAO
             return context.Movimentacoes.ToList();
         }
 
+        public IList<Movimentacao> BuscaPorUsuario(int? usuarioID)
+        {
+            return context.Movimentacoes.Where(x => x.UsuarioId == usuarioID).ToList();
+        }
+
+
+        public IList<Movimentacao> Busca(decimal? ValorMinimo, 
+                                         decimal? ValorMaximo, 
+                                         DateTime? DataMinima, 
+                                         DateTime? DataMaxima, 
+                                         Tipo? Tipo, 
+                                         int? usuarioID)
+        {
+            IQueryable<Movimentacao> busca = context.Movimentacoes;
+
+            if(ValorMinimo.HasValue)
+            {
+                busca = busca.Where(x => x.Valor >= ValorMinimo);
+            }
+
+            if (ValorMaximo.HasValue)
+            {
+                busca = busca.Where(x => x.Valor <= ValorMaximo);
+            }
+
+            if (DataMinima.HasValue)
+            {
+                busca = busca.Where(x => x.Data >= DataMinima);
+            }
+
+            if (DataMaxima.HasValue)
+            {
+                busca = busca.Where(x => x.Data <= DataMaxima);
+            }
+
+            if (Tipo.HasValue)
+            {
+                busca = busca.Where(x => x.Tipo == Tipo);
+            }
+
+            if (usuarioID.HasValue)
+            {
+                busca = busca.Where(x => x.UsuarioId >= usuarioID);
+            }
+
+            return busca.ToList();
+        }
     }
 }

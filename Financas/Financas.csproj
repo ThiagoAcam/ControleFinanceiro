@@ -147,6 +147,8 @@
       <DependentUpon>201607062159203_TabelasIniciais.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BuscaMovimentacoesModel.cs" />
+    <Compile Include="Models\MovimentacoesPorUsuarioModel.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -163,6 +165,8 @@
     <Content Include="Views\Movimentacao\Form.cshtml" />
     <Content Include="Views\Movimentacao\Index.cshtml" />
     <Content Include="Views\Login2\Index.cshtml" />
+    <Content Include="Views\Movimentacao\MovimentacoesPorUsuario.cshtml" />
+    <Content Include="Views\Movimentacao\Busca.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

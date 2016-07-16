@@ -1,0 +1,78 @@
+﻿@model Financas.Models.BuscaMovimentacoesModel
+
+@using(@Html.BeginForm("Busca", "Movimentacao", FormMethod.Get))
+{
+    
+    <div class="row">
+        <fieldset>
+            <legend>Data da Movimentação</legend>
+
+            <div class="col-sm-6">
+                @Html.LabelFor(x => x.DataMinima, "Mínima")
+                @Html.TextBoxFor(x => x.DataMinima, new { @Class = "form-control datepicker" })
+            </div>
+
+            <div class="col-sm-6">
+                @Html.LabelFor(x => x.DataMaxima, "Máxima")
+                @Html.TextBoxFor(x => x.DataMaxima, new { @Class = "form-control datepicker" })
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Valor da Movimentação</legend>
+
+            <div class="col-sm-6">
+                @Html.LabelFor(x => x.ValorMinimo, "Mínimo")
+                @Html.TextBoxFor(x => x.ValorMinimo, new { @Class = "form-control" })
+            </div>
+
+            <div class="col-sm-6">
+                @Html.LabelFor(x => x.ValorMaximo, "Máximo")
+                @Html.TextBoxFor(x => x.ValorMaximo, new { @Class = "form-control" })
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Usuario e Tipo</legend>
+
+            <div class="col-sm-6">
+                @Html.LabelFor(x => x.Tipo, "Tipo")
+                @Html.EnumDropDownListFor(x => x.Tipo, new { @Class = "form-control" })
+            </div>
+
+            <div class="col-sm-6">
+                @Html.LabelFor(x => x.UsuarioID, "Usuario")
+                @Html.DropDownListFor(x => x.UsuarioID, new SelectList(Model.Usuarios, "Id", "Nome"), "Escolja um usuário", new { @Class = "form-control" })
+            </div>
+        </fieldset>
+    </div>
+    
+    <input type="submit" value="Buscar" />
+}
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Data</th>
+            <th>Valor</th>
+            <th>Tipo</th>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var item in Model.Movimentacoes)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Data</td>
+                <td>@item.Valor</td>
+                <td>@item.Tipo</td>
+                <td>@item.Usuario.Nome</td>
+            </tr>   
+        }
+    </tbody>
+</table>
+
